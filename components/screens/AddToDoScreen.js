@@ -8,11 +8,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import toDoRepository from "../ToDoRepository";
+import ToDoRepository from "../ToDoRepository";
 import styles from "../../styles";
 
-const AddToDoScreen = ({ route, navigation }) => {
-  const { toDoRepository } = route.params;
+const AddToDoScreen = ({ navigation }) => {
+  const toDoRepository = new ToDoRepository();
   const [description, setDescription] = useState("");
 
   function addToDo() {
@@ -22,7 +22,8 @@ const AddToDoScreen = ({ route, navigation }) => {
     };
 
     toDoRepository.create(todo);
-    console.log(toDoRepository.read());
+    Alert.alert("Success", "ToDo created");
+    setDescription("");
   }
 
   return (

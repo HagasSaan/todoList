@@ -9,8 +9,6 @@ import styles from "../../styles";
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
 
   function register() {
     createUserWithEmailAndPassword(auth, email, password)
@@ -27,6 +25,7 @@ const RegisterScreen = ({ navigation }) => {
         });
 
         Alert.alert("Success!", "User registered");
+        navigation.navigate("Home");
       })
       .catch(function (error) {
         var errorCode = error.code;
@@ -59,20 +58,6 @@ const RegisterScreen = ({ navigation }) => {
         autoCapitalize="none"
         placeholder="password"
         value={password}
-      />
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(value) => setFirstName(value)}
-        autoCorrect={false}
-        placeholder="first name"
-        value={firstName}
-      />
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(value) => setLastName(value)}
-        autoCorrect={false}
-        placeholder="last name"
-        value={lastName}
       />
       <TouchableOpacity style={styles.button} onPress={register}>
         <Text style={styles.text}>Register</Text>

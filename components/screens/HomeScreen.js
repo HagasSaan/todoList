@@ -12,8 +12,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import styles from "../../styles";
 
 const HomeScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("artemian000@gmail.com");
+  const [password, setPassword] = useState("Sopodi20");
 
   function openLoginScreen() {
     signInWithEmailAndPassword(auth, email, password)
